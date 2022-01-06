@@ -4,6 +4,16 @@ const router = new express.Router()
 const auth = require('../middlewares/userAuth')
 
 
+//Home page
+router.get('/', (req, res) => {
+    try {
+        res.send('<h1>Welcome to Backend Take-home Test - Preferental Inc!</h1> <h3>Please view the API documentation for the working of the remaining routes.</h3>')
+    } catch (e) {
+        res.status(404).send()
+    }
+})
+
+
 //Create user profile
 router.post('/users', async (req, res) => {
     const user = await new User(req.body)
